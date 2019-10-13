@@ -1,10 +1,18 @@
+h1 {
+    background-color: #21b1d1;
+}
+
+div {
+    background-color: #f2e1e1;
+}
+
 .interest {
-    color: rosybrown;
+    color: #fd5e53;
 }
 
 li {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    color: #f0bd6f;
 
 img {
     display: block;
