@@ -37,3 +37,62 @@ console.log(height);
 console.log(redPix);
 console.log(greenPix);
 console.log(bluePix);
+
+//More Duke-Specific Functions
+var img = new SimpleImage(200, 200);
+
+for(var pixel of img.values()) {
+    pixel.setRed(255);
+    pixel.setGreen(255);
+    pixel.setBlue(0);
+    pixel.setAlpha(100);
+}
+
+print(img);
+
+//Filter
+var skyline = new SimpleImage("skyline.jpg");
+
+for(var pixel of skyline.values()) {
+    if(pixel.getX() < skyline.getWidth() / 3) {
+        pixel.setRed(255);
+    }
+    else if(pixel.getX() < (skyline.getWidth() / 3)*2) {
+        pixel.setGreen(255);
+    }
+    else {
+        pixel.setBlue(255);
+    }
+}
+
+print(skyline);
+
+//Swap
+var skyline2 = new SimpleImage("skyline.jpg");
+
+function swapRedGreen(pixel) {
+    var oldRed = pixel.getRed();
+    var oldGreen = pixel.getGreen();
+    
+    pixel.setRed(oldGreen);
+    pixel.setGreen(oldRed);
+}
+
+for(var pixel of skyline2.values()) {
+    swapRedGreen(pixel);
+}
+
+print(skyline2);
+
+//Duke Devil
+var duke = new SimpleImage("duke_blue_devil.png");
+
+for(var pixel of duke.values()) {
+    if(pixel.getBlue() != 255) {
+        pixel.setRed(255);
+        pixel.setGreen(255);
+        pixel.setBlue(0);
+    }
+}
+
+print(duke);
