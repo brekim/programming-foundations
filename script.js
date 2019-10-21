@@ -95,4 +95,61 @@ for(var pixel of duke.values()) {
     }
 }
 
+
+//Part 1
+var gsImage = new SimpleImage('drewRobert.png')
+var bgImage = new SimpleImage('hippieflower.jpg')
+var output = new SimpleImage(gsImage.getWidth(), gsImage.getHeight());
+
+for (var pixel of gsImage.values()) {
+    if(pixel.getGreen() > 230) {
+        var x = pixel.getX();
+        var y = pixel.getY();
+        var bgPixel = bgImage.getPixel(x, y);
+        
+        output.setPixel(x, y, bgPixel);
+    } else {
+        output.setPixel(pixel.getX(), pixel.getY(), pixel);
+    }
+}
+print(output);
+
+//Part 2
+var img = new SimpleImage(200,200);
+for (var px of img.values()){
+  var x = px.getX();
+  var y = px.getY();
+  if (x < img.getWidth()/2){
+    px.setRed(255);
+  }
+  if (y > img.getHeight()/2){
+    px.setBlue(255);
+  }
+  else if (x > img.getWidth()/2){
+    px.setGreen(255);
+  }
+}
+print(img);
+
+//Part 3
+function setBlack(pixel) {
+    pixel.setRed(0);
+    pixel.setBlue(0);
+    pixel.setGreen(0);
+}
+
+function addBorder(image, width) {
+    for(var pixel of image.values()) {
+        if((pixel.getX() + width) >= image.getWidth() || (pixel.getX() <= width)) {
+            setBlack(pixel);
+        }
+        if((pixel.getY() + width) >= image.getHeight() || (pixel.getY() <= width)) {
+            setBlack(pixel);
+        }
+    }
+}
+
+var image = new SimpleImage("chapel.png");
+addBorder(image, 10);
+print(image);
 print(duke);
