@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event-Driven Programming</title>
+        <meta charset="utf-8">
+
+        <style>
+            h1 {
+                color: #4169e1;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 2.5em;
+            }
+
+            #top {
+                border: 2px solid blue;
+                padding: 10px;
+                width: 100%;
+            }
+
+            #bottom {
+                border: 2px solid red;
+                padding: 10px;
+                width: 100%;
+                margin: 20px 0px 20px 0px;
+            }
+
+            #top2 {
+                border: 2px solid blue;
+                padding: 10px;
+                background-color: rgb(252, 129, 5);
+            }
+
+            #bottom2 {
+                border: 2px solid red;
+                padding: 10px;
+                margin: 20px 0px 20px 0px;
+                background-color: rgb(206, 229, 245);
+            }
+
+            #bothead {
+                color: red;
+            }
+
+            .tp {
+                background-color: rgb(206, 229, 245);
+            }
+
+            .bot {
+                background-color: rgb(252, 129, 5);
+            }
+
+            canvas {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+            }
+        </style>
+
+        <script>
+            function buttonClick() {
+                alert("UWU");
+            }
+
+            function changeColor() {
+                var div1 = document.getElementById("top");
+                var div2 = document.getElementById("bottom");
+
+                div1.className = "bot";
+                div2.className = "tp";
+            }
+
+            function changeText() {
+                var div1 = document.getElementById("top");
+                var div2 = document.getElementById("bottom");
+
+                div1.innerHTML = "CT: 3";
+                div2.innerHTML = "T: 16";
+            }
+
+            function changeColor() {
+                var div1 = document.getElementById("top2");
+                var div2 = document.getElementById("bottom2");
+
+                div1.className = "bot";
+                div2.className = "tp";
+            }
+
+            function changeColor1() {
+                var div1 = document.getElementById("top");
+                var div2 = document.getElementById("bottom");
+
+                div1.className = "bot";
+                div2.className = "tp";
+            }
+
+            function goGreen() {
+                var div1 = document.getElementById("top2");
+                div1.style.backgroundColor = "green";
+            }
+
+            function goYellow() {
+                var div2 = document.getElementById("bottom2");
+                div2.style.backgroundColor = "yellow";
+
+                var context = div2.getContext("2d");
+                context.fillStyle = "blue";
+                context.fillRect(25, 25, 50, 50);
+                context.font = "20px Verdana";
+                context.fillText("Heyo", 200, 100);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Event-Driven Programming</h1>
+        <div id="top" class="tp">
+            <input type="button" value="DON'T UWU $200 FINE" onclick="alert('uwu')">
+        </div>
+
+        <h1 id="bothead">Event-Driven Programming</h1>
+        <div id="bottom" class="bot">
+            <input type="button" value="DON'T SWAP COLORS" onclick="changeColor1()">
+        </div>
+
+        <input type="button" value="Display Results" onclick="changeText()">
+        
+        <br>
+
+        <canvas id="top2">
+            
+        </canvas>
+
+        <canvas id="bottom2">
+            
+        </canvas>
+
+        <br>
+
+        <input type="button" value="Green" onclick="goGreen()">
+        <input type="button" value="Yellow" onclick="goYellow()">
+    </body>
+</html>
