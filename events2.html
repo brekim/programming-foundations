@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Events 2</title>
+        <meta charset="utf-8">
+
+        <script>
+            function doBlue() {
+                var canvas = document.getElementById("ok");
+                canvas.style.backgroundColor = "blue";
+            }
+
+            function doColor() {
+                var canvas = document.getElementById("ok");
+                var colorInput = document.getElementById("clr");
+                canvas.style.backgroundColor = colorInput.value;
+            }
+
+            function doSquare() {
+                var sliderInput = document.getElementById("slr");
+                var len = sliderInput.value;
+                var canvas = document.getElementById("ok");
+                var context = canvas.getContext("2d");
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = "yellow";
+                context.fillRect(10, 10, len, len);
+
+                context.fillRect(parseInt(len)+20, 10, len, len);
+                context.fillRect(len*3, 10, len, len);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Events 2</h1>
+
+        <canvas id="ok">
+            
+        </canvas>
+
+        <input type="button" value="Go Blue" onclick="doBlue()">
+        <input type="color" value="#FF0000" id="clr" onchange="doColor()">
+        <input type="range" min="10" max="100" value="#10" id="slr" oninput="doSquare()">
+    </body>
+</html>
